@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+
+.mainback {
+  display: flex;
+  padding-top: 2rem;
+  min-height: 93vh;
+}
+
+.heading {
+  font-family: "Poppins";
+  margin-top: 1rem;
+}
+.page {
+  width: 100%;
+}
+.page hr {
+  width: 100%;
+}
+@media only screen and (max-width: 600px) {
+  .heading {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}

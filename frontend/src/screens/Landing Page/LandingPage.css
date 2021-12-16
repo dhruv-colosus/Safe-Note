@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+body {
+  background-color: #f0edea;
+}
+
+.land {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.land_left {
+  margin-top: 4.5rem;
+  max-width: 400px;
+}
+.land_left h2 {
+  font-size: 4rem;
+  font-weight: 500;
+  font-family: "Poppins";
+  margin-bottom: 1rem;
+}
+
+.land_left p {
+  font-size: 1rem;
+  font-family: "Poppins";
+  font-weight: 300;
+  margin-bottom: 4rem;
+}
+.land_login {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: "Poppins";
+  margin-right: 1.6rem;
+  border: 0px solid;
+  color: white;
+  background-color: black;
+  transition: 300ms ease;
+}
+.land_login:hover {
+  border: 1px black solid;
+  color: black;
+  background-color: rgb(197, 197, 197);
+}
+.land_signup {
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: 300ms ease;
+
+  font-weight: 300;
+  font-family: "Poppins";
+  margin-right: 1.6rem;
+  border: 1px black solid;
+  color: black;
+}
+.land_signup:hover {
+  border: 0px black solid;
+  color: white;
+  background-color: rgb(197, 197, 197);
+}
+.land_login:focus {
+  outline: none;
+}
+.land_signup:focus {
+  outline: none;
+}
+.land_right {
+  margin-top: 4.5rem;
+
+  max-width: 400px;
+}
+
+.land_img {
+  max-width: 400px;
+}
+
+@media only screen and (min-width: 1200px) {
+}
+
+@media only screen and (max-width: 851px) {
+  .land_right {
+    display: none;
+  }
+  .land_left h2 {
+    font-size: 4rem;
+    font-weight: 500;
+    font-family: "Poppins";
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .land_left p {
+    font-size: 1.4rem;
+    font-family: "Poppins";
+    font-weight: 300;
+    margin-bottom: 4rem;
+  }
+  .land_btns {
+    text-align: center;
+  }
+}

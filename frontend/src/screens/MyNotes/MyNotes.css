@@ -1,0 +1,69 @@
+.addnote_btn_div {
+  display: flex;
+  justify-content: center;
+}
+.addnote_btn {
+  margin-left: 10;
+  margin-bottom: 6;
+  border-radius: 50px;
+  font-size: 2rem;
+  padding: 0px 16px;
+  background-color: #000;
+  color: white;
+  border: 1px solid black;
+
+  transition: all 300ms ease;
+}
+.addnote_btn:hover {
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+}
+.note_btns {
+  display: flex;
+  justify-content: space-between;
+}
+.btn_edit {
+  background-color: yellowgreen;
+  border: 0px solid;
+}
+.btn_delete {
+  background-color: red;
+  border: 0px solid;
+}
+
+.btn_edit:hover {
+  background-color: rgb(227, 255, 170);
+  border: 0px solid;
+}
+
+.btn_delete:hover {
+  background-color: #ff8e8e;
+  border: 0px solid;
+}
+.btn_edit:focus {
+  outline: none;
+}
+.btn_delete:focus {
+  outline: none;
+}
+.mynotes_div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.card_body {
+  cursor: pointer;
+}
+
+.modal_title {
+  font-family: "Poppins";
+  font-size: 1.5rem;
+}
+.modal_body {
+  font-family: "Poppins";
+  font-weight: 300;
+}
