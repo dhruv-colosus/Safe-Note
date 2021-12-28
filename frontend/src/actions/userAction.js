@@ -23,7 +23,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "http://localhost:4000/api/users/login",
+      "/users/login",
       {
         email,
         password,
@@ -60,7 +60,7 @@ export const register = (name, email, password, pic) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "http://localhost:4000/api/users",
+      "/users",
       { name, pic, email, password },
       config
     );
@@ -96,11 +96,7 @@ export const updateProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(
-      "http://localhost:4000/api/users/updateprofile",
-      user,
-      config
-    );
+    const { data } = await axios.post("/users/updateprofile", user, config);
 
     dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
 
