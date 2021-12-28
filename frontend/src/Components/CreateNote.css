@@ -1,0 +1,31 @@
+.center_create {
+  padding-top: 1.5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.create_card_input {
+  margin: 0 1rem;
+}
+
+.create_card_input_header {
+  font-size: 1.5rem;
+  font-family: "Poppins";
+}
+.create_card_input_heading {
+  margin-left: 0.3rem;
+  font-size: 1rem;
+  margin-top: 0.4rem;
+}
+
+.create_card_button {
+  margin: 0 1rem;
+  margin-bottom: 1rem;
+  background-color: #f5cd55;
+  border: none;
+  transition: 300ms;
+}
+
+.create_card_button:hover {
+  background-color: #e9b722;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 import note from "../../images/notes.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   Container,
   Form,
@@ -10,7 +10,25 @@ import {
   Navbar,
   NavDropdown,
 } from "react-bootstrap";
-function Header() {
+
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../actions/userAction";
+
+function Header({ setSearch }) {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const searchHandler = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const logOutHandle = () => {
+    dispatch(logout());
+    history.push("/");
+  };
   return (
     <Navbar style={{ backgroundColor: "black" }} variant="dark" expand="lg">
       <Container fluid>
@@ -27,33 +45,53 @@ function Header() {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="m-auto">
-            <Form className="d-flex">
-              <FormControl
-                style={{ width: "20vw" }}
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-            </Form>
+            {userInfo ? (
+              <Form className="d-flex">
+                <FormControl
+                  style={{ width: "20vw" }}
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+                  onChange={searchHandler}
+                />
+              </Form>
+            ) : (
+              ""
+            )}
           </Nav>
           <Nav
             className="mr-5 my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="/mynotes" className="active">
-              My Notes
-            </Nav.Link>
-            <NavDropdown
-              className="active"
-              title="Dhruv Deora"
-              id="navbarScrollingDropdown"
-            >
-              <NavDropdown.Item>Profile </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item>LogOut </NavDropdown.Item>
-            </NavDropdown>
+            {userInfo ? (
+              <>
+                {" "}
+                <Nav.Link href="/mynotes" className="active">
+                  My Notes
+                </Nav.Link>
+                <NavDropdown
+                  className="active"
+                  title={userInfo ? `${userInfo.name}` : "Login"}
+                  id="navbarScrollingDropdown"
+                >
+                  <NavDropdown.Item href="/profile">Profile </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item
+                    onClick={() => {
+                      logOutHandle();
+                    }}
+                  >
+                    LogOut
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </>
+            ) : (
+              <Nav.Link href="/login" className="active">
+                Login
+              </Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,0 +1,25 @@
+.login_flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+}
+.login_container {
+}
+.login_btn {
+  margin-top: 2.5rem;
+  background-color: #f5cd55;
+  width: 6rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: "Poppins";
+  transition: all 300ms;
+  text-align: center;
+}
+.login_btn:hover {
+  background-color: #ffbf00;
+}
+
+.register_here {
+  color: rgb(201, 13, 226);
+}

@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./LandingPage.css";
 
 import Notess from "../../images/notess.png";
+import { Link, useHistory } from "react-router-dom";
 function LandingPage() {
+  const history = useHistory();
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
+
+    if (userInfo) {
+      history.push("/mynotes");
+    }
+  }, [history]);
+
   return (
     <div className="land">
       <div className="land_left">
@@ -13,8 +23,12 @@ function LandingPage() {
           fastest Notes Provider.
         </p>
         <div className="land_btns">
-          <button className="land_login">Login</button>
-          <button className="land_signup">Sign Up</button>
+          <Link to="/login">
+            <button className="land_login">Login</button>
+          </Link>
+          <Link to="/register">
+            <button className="land_signup">Register</button>
+          </Link>
         </div>
       </div>
       <div className="land_right">

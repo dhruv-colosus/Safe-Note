@@ -1,11 +1,12 @@
+const dotenv = require("dotenv");
 const express = require("express");
 const notes = require("./data/notes");
 const cors = require("cors");
 
 const connectDB = require("./config/db");
 
-const dotenv = require("dotenv");
 const userRoutes = require("./routes/userRoutes");
+const noteRoutes = require("./routes/noteRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const app = express();
 
@@ -16,7 +17,7 @@ app.use(
   })
 );
 
-dotenv.config();
+dotenv.config({ path: "../.env" });
 connectDB();
 
 const PORT = process.env.PORT;
@@ -25,14 +26,8 @@ app.get("/", (req, res) => {
   res.send("API is Running ");
 });
 
-app.get("/api/notes", (req, res) => {
-  res.json(notes);
-});
-app.get("/api/notes", (req, res) => {
-  res.json(notes);
-});
-
 app.use("/api/users", userRoutes);
+app.use("/api/notes", noteRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

@@ -26,12 +26,10 @@
 .btn_edit {
   background-color: yellowgreen;
   border: 0px solid;
-  margin: 10px 10px;
 }
 .btn_delete {
   background-color: red;
   border: 0px solid;
-  margin: 10px 10px;
 }
 
 .btn_edit:hover {

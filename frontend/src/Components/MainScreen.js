@@ -11,6 +11,7 @@ function MainScreen({ title, children }) {
             {title && (
               <>
                 <h1 className="heading">{title}</h1>
+
                 <hr />
               </>
             )}
