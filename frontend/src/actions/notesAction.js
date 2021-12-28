@@ -30,7 +30,7 @@ export const listNotes = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`http://localhost:4000/api/notes`, config);
+    const { data } = await axios.get(`/notes`, config);
 
     dispatch({
       type: NOTES_LIST_SUCCESS,
@@ -67,7 +67,7 @@ export const createNoteAction =
       };
 
       const { data } = await axios.post(
-        `http://localhost:4000/api/notes/create`,
+        `/notes/create`,
         { title, content, category },
         config
       );
@@ -107,7 +107,7 @@ export const updateNoteAction =
       };
 
       const { data } = await axios.put(
-        `http://localhost:4000/api/notes/${id}`,
+        `/notes/${id}`,
         { title, content, category },
         config
       );
@@ -144,10 +144,7 @@ export const deleteNoteAction = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(
-      `http://localhost:4000/api/notes/${id}`,
-      config
-    );
+    const { data } = await axios.delete(`/notes/${id}`, config);
 
     dispatch({
       type: NOTES_DELETE_SUCCESS,
