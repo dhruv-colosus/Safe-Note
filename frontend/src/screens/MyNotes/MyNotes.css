@@ -33,6 +33,11 @@
   border: 0px solid;
   margin: 10px 10px;
 }
+.btn_share {
+  background-color: rgb(0, 157, 255);
+  border: 0px solid;
+  margin: 10px 10px;
+}
 
 .btn_edit:hover {
   background-color: rgb(227, 255, 170);
@@ -68,4 +73,9 @@
 .modal_body {
   font-family: "Poppins";
   font-weight: 300;
+}
+
+.button-flx {
+  display: flex;
+  flex-direction: column;
 }

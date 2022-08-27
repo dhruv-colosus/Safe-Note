@@ -7,10 +7,13 @@ import {
   userUpdateReducer,
 } from "./reducers/userReducer";
 import {
+  noteGetReducer,
   noteListReducer,
   noteCreateReducer,
   noteUpdateReducer,
   noteDeleteReducer,
+  shareNoteReducer,
+  isShareReducer,
 } from "./reducers/noteReducers";
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
@@ -19,15 +22,19 @@ const userInfoFromStorage = localStorage.getItem("userInfo")
 
 const initialState = {
   userLogin: { userInfo: userInfoFromStorage },
+  userRegister: { userInfo: userInfoFromStorage },
 };
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   noteList: noteListReducer,
+  noteGet: noteGetReducer,
   noteCreate: noteCreateReducer,
   noteUpdate: noteUpdateReducer,
   noteDelete: noteDeleteReducer,
   userUpdate: userUpdateReducer,
+  shareNote: shareNoteReducer,
+  isShare: isShareReducer,
 });
 
 const middleware = [thunk];

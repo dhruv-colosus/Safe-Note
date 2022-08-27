@@ -26,7 +26,7 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
       default:
-        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+        "https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg",
     },
   },
   {

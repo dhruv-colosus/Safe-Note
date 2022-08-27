@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@300;400;700&display=swap");
+
+.share-container {
+  background-color: #efe6d9;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "Oswald";
+  justify-content: center;
+
+  margin: 2rem;
+}
+.share-container h1 {
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.share-container h3 {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.share-container p {
+  font-family: "inter";
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.not-auth {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: row;
+  font-family: "Oswald";
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(251, 252, 250);
+}
+.not-auth img {
+  width: 30rem;
+}
+
+.dance-div {
+  position: relative;
+  padding: 2rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+.dance-div h1 {
+  /* top: 15rem;
+  left: 15rem; */
+  text-shadow: 2px 2px #000000;
+  color: #f01717;
+  font-size: 4rem;
+  /* position: absolute; */
+}

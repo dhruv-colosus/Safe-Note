@@ -1,6 +1,9 @@
-const dotenv = require("dotenv");
+const path = require("path");
+
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const express = require("express");
 const notes = require("./data/notes");
+
 const cors = require("cors");
 
 const connectDB = require("./config/db");
@@ -8,7 +11,6 @@ const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const noteRoutes = require("./routes/noteRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
-const path = require("path");
 const app = express();
 
 app.use(express.json()); // To destructure our Controller
@@ -18,10 +20,9 @@ app.use(
   })
 );
 
-dotenv.config({ path: "../.env" });
 connectDB();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
 
 app.use("/api/users", userRoutes);
 app.use("/api/notes", noteRoutes);
@@ -41,13 +42,14 @@ if (process.env.NODE_ENV === "production") {
     res.send("API is Running ");
   });
 }
-//-------DEPLOYMENT-------------
+// -------DEPLOYMENT-------------
 
 app.use(notFound);
 app.use(errorHandler);
+console.log(PORT);
 
-// app.get("/api/notes/:id", (req, res) => {
-//   const note = notes.find((n) => n._id === req.params.id);
-//   res.send(note);
-// });
+app.get("/api/notes/:id", (req, res) => {
+  const note = notes.find((n) => n._id === req.params.id);
+  res.send(note);
+});
 app.listen(PORT, console.log(`Port Started on ${PORT}`));

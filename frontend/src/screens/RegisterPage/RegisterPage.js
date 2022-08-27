@@ -96,10 +96,10 @@ const RegisterPage = () => {
               onChange={(e) => setconfirmPassword(e.target.value)}
             />
           </Form.Group>
-          <Form.Group controlId="formFile" className="mb-3">
+          {/* <Form.Group controlId="formFile" className="mb-3">
             <Form.Label>Upload Your Pic</Form.Label>
             <Form.Control type="file" />
-          </Form.Group>
+          </Form.Group> */}
 
           <Button
             className="login_btn"

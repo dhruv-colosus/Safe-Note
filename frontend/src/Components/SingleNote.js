@@ -4,7 +4,7 @@ import axios from "axios";
 
 import Loading from "./Loading";
 import ErrorMessage from "./ErrorMessage";
-import { updateNoteAction } from "../actions/notesAction";
+import { getSingleNote, updateNoteAction } from "../actions/notesAction";
 import ReactMarkdown from "react-markdown";
 
 import { useHistory, useParams } from "react-router-dom";
@@ -24,6 +24,8 @@ function SingleNote() {
 
   const noteUpdate = useSelector((state) => state.noteUpdate);
   const { loading, error } = noteUpdate;
+  const noteGet = useSelector((state) => state.noteGet);
+  const { data, error: error2 } = noteGet;
 
   const resetHandler = () => {
     setContent("");
@@ -41,12 +43,17 @@ function SingleNote() {
   };
   useEffect(() => {
     const fetching = async () => {
-      const { data } = await axios.get(`/api/notes/${id.id}`);
-      setContent(data.content);
-      setCategory(data.category);
-      setTitle(data.title);
-      setDate(data.updatedAt);
+      // const { data } = await axios.get(
+      //   `http://localhost:4000/api/notes/${id.id}`
+      // );
+      await dispatch(getSingleNote(id.id));
+      console.log(data);
+      setContent(data != undefined ? data.content : "");
+      setCategory(data != undefined ? data.category : "");
+      setTitle(data != undefined ? data.title : "");
+      setDate(data != undefined ? data.updatedAt : "");
     };
+
     fetching();
   }, [id.id, date]);
   return (

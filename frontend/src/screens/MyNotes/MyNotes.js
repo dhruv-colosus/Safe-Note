@@ -9,13 +9,19 @@ import ErrorMessage from "../../Components/ErrorMessage";
 import MainScreen from "../../Components/MainScreen";
 import "./MyNotes.css";
 import { useDispatch, useSelector } from "react-redux";
-import { listNotes, deleteNoteAction } from "../../actions/notesAction";
+import {
+  listNotes,
+  deleteNoteAction,
+  isShare,
+} from "../../actions/notesAction";
 
 function MyNotes({ search }) {
   const history = useHistory();
   const [show, setShow] = useState(false);
   const [modalNote, setmodalNote] = useState("");
   const dispatch = useDispatch();
+
+  const [publicSucess, setPublicSucess] = useState(false);
 
   const noteList = useSelector((state) => state.noteList);
   const { loading, notes, error } = noteList;
@@ -29,6 +35,9 @@ function MyNotes({ search }) {
     error: errorDelete,
     success: successDelete,
   } = noteDelete;
+
+  const willShare = useSelector((state) => state.isShare);
+  const { success } = isShare;
 
   const handleClose = () => setShow(false);
   const handleShow = (id) => {
@@ -52,6 +61,15 @@ function MyNotes({ search }) {
       dispatch(deleteNoteAction(id));
     }
   };
+
+  const shareHandler = (id) => {
+    const fetching = async () => {
+      await dispatch(isShare(id));
+
+      setPublicSucess(!publicSucess);
+    };
+    fetching();
+  };
   const noteCreate = useSelector((state) => state.noteCreate);
   const { success: successCreate } = noteCreate;
 
@@ -70,6 +88,7 @@ function MyNotes({ search }) {
     successCreate,
     successUpdate,
     successDelete,
+    publicSucess,
   ]);
   return (
     <MainScreen title={`Welcome Back ${userInfo.name}`}>
@@ -130,6 +149,19 @@ function MyNotes({ search }) {
                     >
                       Delete
                     </Button>
+                    <div className="button-flx">
+                      <Button
+                        className="btn_share"
+                        onClick={(e) => shareHandler(note._id)}
+                      >
+                        {note && note.isShare === false ? "Private" : "Public"}
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="button-flx">
+                    <Link to={`/share/${note._id}`}>
+                      <Button className="btn_share">SHARE</Button>
+                    </Link>
                   </div>
                 </Card>
 

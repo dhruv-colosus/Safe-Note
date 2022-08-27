@@ -10,6 +10,7 @@ import CreateNote from "./Components/CreateNote";
 import SingleNote from "./Components/SingleNote";
 import { useState } from "react";
 import Profile from "./Components/Profile";
+import ShareNote from "./Components/ShareNote";
 function App() {
   const [search, setSearch] = useState("");
   return (
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/register" exact>
             <RegisterPage />
+          </Route>
+          <Route path="/share/:id" exact>
+            <ShareNote />
           </Route>
           <Route path="/" exact>
             <LandingPage />

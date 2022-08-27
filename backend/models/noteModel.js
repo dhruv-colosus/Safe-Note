@@ -18,6 +18,11 @@ const noteSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
+    isShare: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
   },
   {
     timestamps: true,
